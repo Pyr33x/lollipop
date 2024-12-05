@@ -9,7 +9,7 @@ export default function NotFound() {
         Not Found
       </h1>
       <p className=" text-xl md:text-2xl mt-1 font-medium text-muted-foreground text-center">
-        Couldn't find the requested resource.
+        {"Couldn't find the requested resource."}
       </p>
       <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-x-2">
         <Button>
