@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@neondatabase/serverless": "^0.10.4",
+    "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -33,6 +34,7 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vaul": "^1.1.1"
   }
 }

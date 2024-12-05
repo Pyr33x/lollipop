@@ -6,6 +6,10 @@
   color-scheme: dark;
 }
 
+body {
+  text-rendering: optimizeLegibility;
+}
+
 @layer base {
   :root {
     --background: 20 14.3% 4.1%;
