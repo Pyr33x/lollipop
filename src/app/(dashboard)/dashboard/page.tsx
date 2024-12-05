@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { Upload } from "~/app/(dashboard)/dashboard/_components/upload";
 import { auth } from "~/server/auth";
 
 export default async function Dashboard() {
@@ -8,7 +9,7 @@ export default async function Dashboard() {
   }
   return (
     <>
-      <h1 className="text-7xl font-bold text-white">Hello</h1>
+      <Upload />
     </>
   );
 }
