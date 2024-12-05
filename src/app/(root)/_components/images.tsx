@@ -1,10 +1,7 @@
 import { getImages } from "~/app/(root)/_components/getImages";
-import { auth } from "~/server/auth";
 import Image from "next/image";
 
 export async function Images() {
-  const session = await auth();
-  const user = session?.user;
   const images = await getImages({ searchParams: { asc: "id" } });
   return (
     <div className="grid grid-cols-2 gap-3">
