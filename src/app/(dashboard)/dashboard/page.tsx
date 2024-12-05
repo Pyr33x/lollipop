@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { Upload } from "~/app/(dashboard)/dashboard/_components/upload";
+import { Uploader } from "~/app/(dashboard)/dashboard/_components/uploader";
 import { auth } from "~/server/auth";
 
 export default async function Dashboard() {
@@ -7,5 +7,5 @@ export default async function Dashboard() {
   if (!session) {
     return redirect("/");
   }
-  return <Upload />;
+  return <Uploader />;
 }

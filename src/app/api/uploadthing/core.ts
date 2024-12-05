@@ -9,15 +9,19 @@ export const ourFileRouter = {
   imageUploader: f({
     image: {
       maxFileSize: "4MB",
-      maxFileCount: 2,
+      maxFileCount: 1,
     },
   })
     .middleware(async () => {
       const session = await auth();
-      if (!session) throw new UploadThingError("Unauthorized");
-      return { userId: session?.user?.id };
+      const user = session?.user;
+      if (!session)
+        throw new UploadThingError("You must sign in to upload images.");
+      return { userId: user?.id };
     })
     .onUploadComplete(async ({ metadata, file }) => {
+      console.log("Upload complete for userId:", metadata.userId);
+      console.log("file url", file.url);
       await db.insert(images).values({
         id: crypto.randomUUID(),
         name: file.name as string,

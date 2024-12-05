@@ -6,12 +6,6 @@ import {
   integer,
 } from "drizzle-orm/pg-core";
 import type { AdapterAccountType } from "next-auth/adapters";
-import { neon } from "@neondatabase/serverless";
-import { drizzle } from "drizzle-orm/neon-http";
-import "dotenv/config";
-
-const sql = neon(process.env.POSTGRES_URL!);
-export const db = drizzle(sql);
 
 export const users = pgTable("user", {
   id: text("id")
@@ -55,7 +49,7 @@ export const images = pgTable("image", {
   url: text("url"),
   uploader: text("userId")
     .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
+    .references(() => users.id),
 });
 
 export const sessions = pgTable("session", {

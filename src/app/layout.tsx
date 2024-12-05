@@ -1,7 +1,7 @@
+import { Navigation } from "~/components/shared";
 import { jetBrains, inter } from "~/lib/fonts";
 import type { Metadata } from "next";
 import "~/styles/globals.css";
-import { Navigation } from "~/components/shared";
 
 export const metadata: Metadata = {
   title: "Create Next App",
