@@ -12,7 +12,7 @@ export async function Images() {
           alt={image.name ?? ""}
           width={200}
           height={200}
-          className="select-none transition ease-in-out duration-200 hover:scale-105 rounded-sm"
+          className="select-none transition ease-in-out duration-200 hover:scale-105 active:scale-95 rounded-sm"
         />
       ))}
     </div>
