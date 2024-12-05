@@ -7,9 +7,5 @@ export default async function Dashboard() {
   if (!session) {
     return redirect("/");
   }
-  return (
-    <>
-      <Upload />
-    </>
-  );
+  return <Upload />;
 }

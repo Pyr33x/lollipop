@@ -10,9 +10,4 @@ export const routes: Route[] = [
     title: "Home",
     path: "/",
   },
-  {
-    id: 2,
-    title: "Gallery",
-    path: "/gallery",
-  },
 ];

@@ -9,14 +9,13 @@ export const ourFileRouter = {
   imageUploader: f({
     image: {
       maxFileSize: "4MB",
-      maxFileCount: 1,
+      maxFileCount: 2,
     },
   })
     .middleware(async () => {
       const session = await auth();
-      const user = session?.user;
       if (!session) throw new UploadThingError("Unauthorized");
-      return { userId: user?.id };
+      return { userId: session?.user?.id };
     })
     .onUploadComplete(async ({ metadata, file }) => {
       await db.insert(images).values({

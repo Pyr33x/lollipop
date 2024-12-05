@@ -1,20 +1,19 @@
 "use client";
 
-import { UploadButton } from "~/utils/uploadthing";
+import { UploadDropzone } from "~/utils/uploadthing";
+import { useRouter } from "next/navigation";
 
 export function Upload() {
+  const router = useRouter();
   return (
-    <>
-      <UploadButton
-        endpoint="imageUploader"
-        onClientUploadComplete={(res) => {
-          console.log("Files: ", res);
-          alert("Upload Completed");
-        }}
-        onUploadError={(error: Error) => {
-          alert(`ERROR! ${error.message}`);
-        }}
-      />
-    </>
+    <UploadDropzone
+      endpoint="imageUploader"
+      onClientUploadComplete={() => {
+        router.refresh();
+      }}
+      onUploadError={(error) => {
+        console.error(error);
+      }}
+    />
   );
 }
