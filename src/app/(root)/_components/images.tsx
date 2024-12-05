@@ -1,3 +1,9 @@
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "~/components/ui";
 import { getImages } from "~/app/(root)/_components/getImages";
 import Image from "next/image";
 
@@ -6,17 +12,31 @@ export async function Images() {
   return (
     <div className="grid grid-cols-2 gap-3">
       {images.map((image) => (
-        <>
-          <Image
-            key={image.id}
-            src={image.url ?? ""}
-            alt={image.name ?? ""}
-            width={200}
-            height={200}
-            className="select-none transition ease-in-out duration-200 hover:scale-105 active:scale-95 rounded-sm"
-            title={`Uploaded by ${image.userName}`}
-          />
-        </>
+        <TooltipProvider key={image.id}>
+          <Tooltip>
+            <TooltipTrigger>
+              <Image
+                src={image.url ?? ""}
+                alt={image.name ?? ""}
+                width={200}
+                height={200}
+                className="select-none transition ease-in-out duration-200 hover:scale-105 active:scale-95 rounded-sm"
+              />
+            </TooltipTrigger>
+            <TooltipContent>
+              <div className="flex flex-row gap-x-2">
+                <Image
+                  src={image.userImage ?? ""}
+                  alt={image.userName ?? ""}
+                  width={20}
+                  height={20}
+                  className="rounded-full"
+                />
+                <span>Uploaded by {image.userName}</span>
+              </div>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       ))}
     </div>
   );
