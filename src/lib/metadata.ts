@@ -6,14 +6,16 @@ export const meta: Metadata = {
 
   openGraph: {
     siteName: "Lollipop",
-    url: "https://pyr33x.ir/opengraph-image",
+    url: "https://pyr33x.ir",
     locale: "en_US",
+    images: "https://pyr33x.ir/opengraph-image",
   },
   twitter: {
     title: "Lollipop",
     card: "summary_large_image",
     creator: "@pyr33x",
     site: "https://lollipop.pyr33x.ir",
+    images: "https://pyr33x.ir/opengraph-image",
   },
 
   applicationName: "Lollipop",
