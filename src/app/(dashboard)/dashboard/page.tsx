@@ -14,7 +14,7 @@ export default async function Dashboard() {
   const session = await auth();
   if (!session) {
     return (
-      <div className="px-6">
+      <>
         <h1 className="text-center text-3xl font-black tracking-tight text-foreground lg:text-5xl">
           Restricted
         </h1>
@@ -35,8 +35,12 @@ export default async function Dashboard() {
             </Button>
           </Link>
         </div>
-      </div>
+      </>
     );
   }
-  return <Uploader />;
+  return (
+    <section>
+      <Uploader />
+    </section>
+  );
 }

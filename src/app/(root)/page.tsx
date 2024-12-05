@@ -1,5 +1,6 @@
 import { getImages } from "~/app/(root)/_components/getImages";
-import { Separator } from "~/components/ui";
+import { Separator, Skeleton } from "~/components/ui";
+import { Suspense } from "react";
 import Image from "next/image";
 
 export const dynamic = "force-dynamic";
@@ -16,17 +17,19 @@ export default async function Home() {
         Clean Full-Stack Uploader App
       </p>
       <Separator className="my-6" />
-      <div className="grid grid-cols-3 gap-2">
-        {images.map((img) => (
-          <Image
-            key={img.id}
-            src={img.url ?? ""}
-            alt={img.name ?? ""}
-            width={200}
-            height={200}
-          />
-        ))}
-      </div>
+      <Suspense fallback={<Skeleton className="w-full h-20" />}>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+          {images.map((img) => (
+            <Image
+              key={img.id}
+              src={img.url ?? ""}
+              alt={img.name ?? ""}
+              width={200}
+              height={200}
+            />
+          ))}
+        </div>
+      </Suspense>
     </section>
   );
 }
