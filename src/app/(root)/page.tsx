@@ -1,13 +1,11 @@
-import { getImages } from "~/app/(root)/_components/getImages";
+import { Images } from "~/app/(root)/_components/images";
 import { Separator, Skeleton } from "~/components/ui";
 import { Suspense } from "react";
-import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 30;
 
-export default async function Home() {
-  const images = await getImages({ searchParams: { asc: "id" } });
+export default function Home() {
   return (
     <section>
       <h1 className="text-2xl md:text-4xl font-bold text-foreground text-center">
@@ -18,17 +16,7 @@ export default async function Home() {
       </p>
       <Separator className="my-6" />
       <Suspense fallback={<Skeleton className="w-full h-20" />}>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-          {images.map((img) => (
-            <Image
-              key={img.id}
-              src={img.url ?? ""}
-              alt={img.name ?? ""}
-              width={200}
-              height={200}
-            />
-          ))}
-        </div>
+        <Images />
       </Suspense>
     </section>
   );

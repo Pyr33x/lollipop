@@ -3,7 +3,13 @@ import { GithubIcon } from "~/components/icons";
 import { CornerDownLeft } from "lucide-react";
 import { auth, signIn } from "~/server/auth";
 import { Button } from "~/components/ui";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Lollipop Dashboard",
+};
 
 async function handleSignIn() {
   "use server";
@@ -21,7 +27,7 @@ export default async function Dashboard() {
         <p className="mt-2 max-w-2xl text-wrap text-center text-lg font-medium tracking-tight text-foreground/60 lg:text-xl">
           You must sign in to your github account to access the dashboard.
         </p>
-        <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-x-2">
+        <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-2">
           <form action={handleSignIn}>
             <Button className="group">
               <GithubIcon className="mr-2 h-4 w-4 fill-white" />

@@ -20,7 +20,7 @@ export default function NotFound({
       <p className=" text-xl md:text-2xl mt-1 font-medium text-muted-foreground text-center">
         {error.message}
       </p>
-      <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-x-2">
+      <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-2">
         <Button onClick={reset}>
           <RotateCcw className="mr-2 h-4 w-4" />
           Try Again

@@ -1,3 +1,6 @@
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { ourFileRouter } from "~/app/api/uploadthing/core";
+import { extractRouterConfig } from "uploadthing/server";
 import { Navigation } from "~/components/shared";
 import { jetBrains, inter } from "~/lib/fonts";
 import { Toaster } from "~/components/ui";
@@ -19,6 +22,7 @@ export default function RootLayout({
       <body
         className={`${jetBrains.variable} ${inter.className} antialiased w-full h-full bg-background scroll-smooth`}
       >
+        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <Navigation />
         <main className="min-h-screen flex flex-col items-center justify-center px-8 py-36">
           {children}
