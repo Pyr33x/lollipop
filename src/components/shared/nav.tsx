@@ -39,7 +39,11 @@ export async function Navigation() {
       >
         <div className="flex h-full w-full select-none items-center justify-between px-6">
           <div className="flex flex-row items-center gap-x-4">
-            <h1 className="neutral-200 mr-3 text-2xl font-bold">Lollipop</h1>
+            <Link href="/">
+              <h1 className="neutral-200 mr-3 text-2xl font-bold select-none">
+                Lollipop
+              </h1>
+            </Link>
             {routes.map((route) => (
               <Link
                 key={route.path}

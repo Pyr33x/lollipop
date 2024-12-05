@@ -1,8 +1,9 @@
 import { getImages } from "~/app/(root)/_components/getImages";
-import Image from "next/image";
 import { Separator } from "~/components/ui";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 30;
 
 export default async function Home() {
   const images = await getImages({ searchParams: { asc: "id" } });
