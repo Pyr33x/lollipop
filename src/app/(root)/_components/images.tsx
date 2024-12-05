@@ -17,11 +17,7 @@ export async function Images() {
             width={200}
             height={200}
             className="select-none transition ease-in-out duration-200 hover:scale-105 active:scale-95 rounded-sm"
-            title={
-              image.uploader === user?.id
-                ? `Uploaded by ${user?.name}`
-                : "Sign in to see the uploader name"
-            }
+            title={`Uploaded by ${image.userName}`}
           />
         </>
       ))}
