@@ -47,9 +47,15 @@ export const images = pgTable("image", {
     .$defaultFn(() => crypto.randomUUID()),
   name: text("name"),
   url: text("url"),
-  uploader: text("userId")
+  userId: text("userId")
     .notNull()
     .references(() => users.id),
+  userName: text("userName")
+    .notNull()
+    .references(() => users.name),
+  userImage: text("userImage")
+    .notNull()
+    .references(() => users.image),
 });
 
 export const sessions = pgTable("session", {

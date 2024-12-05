@@ -17,18 +17,28 @@ export const ourFileRouter = {
       const user = session?.user;
       if (!session)
         throw new UploadThingError("You must sign in to upload images.");
-      return { userId: user?.id };
+      return {
+        userId: user?.id,
+        userName: user?.name,
+        userAvatar: user?.image,
+      };
     })
     .onUploadComplete(async ({ metadata, file }) => {
-      console.log("Upload complete for userId:", metadata.userId);
-      console.log("file url", file.url);
       await db.insert(images).values({
         id: crypto.randomUUID(),
         name: file.name as string,
         url: file.url as string,
-        uploader: metadata.userId as string,
+        userId: metadata.userId as string,
+        userName: metadata.userName as string,
+        userImage: metadata.userAvatar as string,
       });
-      return { uploadedBy: metadata.userId };
+      return {
+        uploadedBy: {
+          id: metadata.userId,
+          name: metadata.userName,
+          avatar: metadata.userAvatar,
+        },
+      };
     }),
 } satisfies FileRouter;
 
