@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <section>
       <h1 className="text-2xl md:text-4xl font-bold text-foreground text-center">
-        Lolipop
+        Lollipop
       </h1>
       <p className=" text-xl md:text-2xl mt-1 font-medium text-muted-foreground text-center">
         Clean Full-Stack Uploader App

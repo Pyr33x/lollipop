@@ -1,6 +1,7 @@
 import { GithubIcon } from "~/components/icons";
 import { CornerDownLeft } from "lucide-react";
 import { Button } from "~/components/ui";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -16,10 +17,12 @@ export default function NotFound() {
           <GithubIcon className="mr-2 h-4 w-4" />
           Star on Github
         </Button>
-        <Button variant="secondary">
-          Return Home
-          <CornerDownLeft className="ml-2 h-4 w-4" />
-        </Button>
+        <Link href="/">
+          <Button variant="secondary">
+            Return Home
+            <CornerDownLeft className="ml-2 h-4 w-4" />
+          </Button>
+        </Link>
       </div>
     </section>
   );
