@@ -2,7 +2,6 @@ import { Images } from "~/app/(root)/_components/images";
 import { Separator, Skeleton } from "~/components/ui";
 import { Suspense } from "react";
 
-export const dynamic = "force-dynamic";
 export const revalidate = 30;
 
 export default function Home() {
