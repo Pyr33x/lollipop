@@ -2,10 +2,10 @@ import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { ourFileRouter } from "~/app/api/uploadthing/core";
 import { extractRouterConfig } from "uploadthing/server";
 import { Navigation } from "~/components/shared";
-import { jetBrains, inter } from "~/lib/fonts";
 import { Toaster } from "~/components/ui";
 import { meta } from "~/lib/metadata";
 import type { Metadata } from "next";
+import { inter } from "~/lib/fonts";
 import "~/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jetBrains.variable} ${inter.className} antialiased w-full h-full bg-background scroll-smooth`}
+        className={`${inter.className} antialiased w-full h-full bg-background scroll-smooth`}
       >
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <Navigation />
