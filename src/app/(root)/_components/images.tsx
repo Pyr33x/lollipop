@@ -21,6 +21,7 @@ export async function Images() {
                 width={200}
                 height={200}
                 className="select-none transition ease-in-out duration-200 hover:scale-105 active:scale-95 rounded-sm"
+                priority
               />
             </TooltipTrigger>
             <TooltipContent>
@@ -31,6 +32,7 @@ export async function Images() {
                   width={20}
                   height={20}
                   className="rounded-full"
+                  priority
                 />
                 <span>Uploaded by {image.userName}</span>
               </div>
