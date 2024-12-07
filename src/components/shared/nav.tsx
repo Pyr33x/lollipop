@@ -72,7 +72,7 @@ export async function Navigation() {
                     alt="avatar"
                     width={40}
                     height={40}
-                    className="transform rounded-full transition hover:scale-105 active:scale-95"
+                    className="transform rounded-full transition hover:scale-105 active:scale-95 w-[40px] h-[40px]"
                     priority
                   />
                 </DrawerTrigger>

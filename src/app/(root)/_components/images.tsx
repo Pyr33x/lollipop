@@ -10,7 +10,7 @@ import Image from "next/image";
 export async function Images() {
   const images = await getImages({ searchParams: { asc: "id" } });
   return (
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
       {images.map((image) => (
         <TooltipProvider key={image.id}>
           <Tooltip>
@@ -20,7 +20,7 @@ export async function Images() {
                 alt={image.name ?? ""}
                 width={200}
                 height={200}
-                className="select-none transition ease-in-out duration-200 hover:scale-105 active:scale-95 rounded-sm"
+                className="select-none transition ease-in-out duration-200 hover:scale-105 active:scale-95 rounded-sm w-[200px] h-[200px]"
                 priority
               />
             </TooltipTrigger>
