@@ -9,12 +9,10 @@ import {
   Separator,
 } from "~/components/ui";
 import { auth, signIn, signOut } from "~/server/auth";
-import { routes } from "~/lib/routes";
 import { cn } from "~/utils/cn";
 import Image from "next/image";
 import Link from "next/link";
-
-const ROUTE_STYLE = "text-foreground/80 transform hover:text-neutral-200";
+import { NavLinks } from "~/components/shared/nav-links";
 
 async function handleSignIn() {
   "use server";
@@ -44,23 +42,7 @@ export async function Navigation() {
                 Lollipop
               </h1>
             </Link>
-            {routes.map((route) => (
-              <Link
-                key={route.path}
-                href={route.path.toString()}
-                className={cn(ROUTE_STYLE, "hidden md:block")}
-              >
-                {route.title}
-              </Link>
-            ))}
-            {session && (
-              <Link
-                href="/dashboard"
-                className={cn(ROUTE_STYLE, "hidden md:block")}
-              >
-                Dashboard
-              </Link>
-            )}
+            <NavLinks className="hidden md:block" session={session} />
           </div>
 
           <div className="flex items-center">
@@ -101,18 +83,7 @@ export async function Navigation() {
 
                   <div className="mb-8 flex flex-col gap-y-2 text-center md:hidden">
                     <Separator className="my-2" />
-                    {routes.map((route) => (
-                      <Link
-                        key={route.path}
-                        href={route.path.toString()}
-                        className={ROUTE_STYLE}
-                      >
-                        {route.title}
-                      </Link>
-                    ))}
-                    <Link href="/dashboard" className={ROUTE_STYLE}>
-                      Dashboard
-                    </Link>
+                    <NavLinks className="block md:hidden" session={session} />
                   </div>
                 </DrawerContent>
               </Drawer>
