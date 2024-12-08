@@ -1,3 +1,6 @@
+"use server";
+
+import "server-only";
 import { db, images } from "~/server/db";
 import { sql } from "drizzle-orm";
 

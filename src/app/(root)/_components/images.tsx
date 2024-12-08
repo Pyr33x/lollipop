@@ -4,7 +4,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "~/components/ui";
-import { getImages } from "~/app/(root)/_components/getImages";
+import { getImages } from "~/server/queries/getImage";
 import Image from "next/image";
 
 export async function Images() {
