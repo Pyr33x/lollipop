@@ -15,10 +15,16 @@ export async function Hero() {
         Clean Full-Stack Uploader App
       </p>
       <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-2">
-        <Button>
-          <GithubIcon className="mr-2 h-4 w-4" />
-          Star on Github
-        </Button>
+        <a
+          href="https://github.com/pyr33x/lollipop"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button>
+            <GithubIcon className="mr-2 h-4 w-4" />
+            Star on Github
+          </Button>
+        </a>
         {session ? (
           <Link href="/dashboard">
             <Button variant="secondary">
