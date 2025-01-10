@@ -14,8 +14,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -26,6 +28,8 @@ export default function RootLayout({
         <Navigation />
         <main className="min-h-screen flex flex-col items-center justify-center px-8 py-36">
           {children}
+          {modal}
+          <div id="modal-root" />
         </main>
         <Toaster richColors closeButton />
       </body>

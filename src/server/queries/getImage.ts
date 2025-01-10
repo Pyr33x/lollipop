@@ -17,3 +17,11 @@ export async function getImages({
     );
   return imgs;
 }
+
+export async function getImage({ id }: { id: string }) {
+  const img = await db.query.images.findFirst({
+    where: (model, { eq }) => eq(model.id, id),
+  });
+  if (!img) throw new Error("Not Found");
+  return img;
+}
