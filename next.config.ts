@@ -5,16 +5,12 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
         hostname: "utfs.io",
-        pathname: "/**",
       },
       {
-        protocol: "https",
         hostname: "**.githubusercontent.com",
       },
       {
-        protocol: "https",
         hostname: "r09f0jyudo.ufs.sh",
       },
     ],
